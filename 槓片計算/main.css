@@ -1,0 +1,273 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    
+}
+
+body {
+    overflow-x: hidden;
+    background: rgb(193, 215, 165);
+}
+
+nav {
+    height: 70px;
+    padding-top: 10px;
+    width: 100%;
+    background-color: rgb(81, 101, 49);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0%;
+    z-index: 999;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    list-style: none;
+    width: auto;
+    text-align: center;
+    padding: 0 30px;
+}
+
+li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+span {
+    text-align: center;
+}
+
+main {
+    display: flex;
+}
+
+.row{
+    width: 110%;
+}
+.text {
+    height: 500px;
+    width: 50%;
+    background: rgb(193, 215, 165);
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: 50px;
+}
+
+.text p {
+    margin-top: 20px;
+    margin-right: 5px;
+    font-size: 18pt;
+    font-weight: 600;
+}
+
+.pic {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 500px;
+    width: 50%;
+    background: rgb(193, 215, 165);
+    z-index: 0;
+}
+
+.box {
+    width: 450px;
+    position: relative;
+    text-align: center;
+}
+
+
+
+.pipe {
+    width: 50px;
+    height: 20px;
+    background-color: rgb(164, 161, 161);
+    margin: 52.5px 0px;
+    border: solid black 1px;
+    border-right: none;
+    line-height: 20px;
+}
+
+.pipe::before{
+    content: "20" ;
+}
+
+input {
+    width: 200px;
+    border-radius: 10px;
+    padding: 2px 2px 2px 5px;
+}
+
+#a {
+    position: absolute;
+    top: -40px;
+    left: 20px;
+}
+
+#a li{
+    padding: 0;
+    margin: auto 0;
+    font-size: 9pt;
+}
+
+.a_red_50{
+    width: 30px;
+    height: 125px;
+    background-color: rgb(165, 4, 4);
+    content: "25";
+    padding: 0;
+    border: solid black 1px;
+}
+
+.a_red_50::before{
+    content: "25";
+    line-height: 125px;
+}
+
+.a_blue_40{
+    width: 30px;
+    height: 125px;
+    background-color: rgb(4, 84, 165);
+    content: "20";
+    border: solid black 1px;
+}
+
+.a_blue_40::before{
+    content: "20";
+    line-height: 125px;
+}
+
+.a_yell_30{
+    width: 30px;
+    height: 125px;
+    background-color: rgb(189, 221, 5);
+    content: "15";
+    padding: 0; 
+    border: solid black 1px;
+}
+
+.a_yell_30::before{
+    content: "15";
+    line-height: 125px;
+}
+
+.a_gree_20{
+    width: 30px;
+    height: 125px;
+    background-color: rgb(55, 165, 4);
+    content: "10";
+    border: solid black 1px;
+}
+
+.a_gree_20::before{
+    content: "10";
+    line-height: 125px;
+}
+
+.a_white_10{
+    width: 25px;
+    height: 100px;
+    background-color: rgb(252, 252, 252);
+    margin-top: 12.5px ;
+    content: "5";
+    border: solid black 1px;
+}
+
+.a_white_10::before{
+    content: "5";
+    line-height: 100px;
+}
+
+.a_black_5{
+    width: 25px;
+    height: 80px;
+    background-color: rgb(41, 41, 41);
+    content: "2.5";
+    margin-top: 22.5px ;
+    border: solid black 1px;
+}
+
+.a_black_5::before{
+    content: "2.5";
+    line-height: 80px;
+    color:white;
+}
+
+.a_sli_205{
+    width: 25px;
+    height: 70px;
+    background-color: rgb(134, 134, 134);
+    content: "1.25";
+    margin-top: 27.5px ;
+    border: solid black 1px;
+}
+
+.a_sli_205::before{
+    content: "1.25";
+    line-height: 70px;
+    font-size: 9pt;
+}
+
+.a_sli_010{
+    width: 25px;
+    height: 60px;
+    background-color: rgb(134, 134, 134);
+    content: "0.5";
+    margin-top: 32.5px ;
+    border: solid black 1px;
+}
+
+.a_sli_010::before{
+    content: "0.5";
+    line-height: 60px;
+}
+
+.a_sli_050{
+    width: 25px;
+    height: 60px;
+    background-color: rgb(134, 134, 134);
+    content: "0.25";
+    margin-top: 32.5px ;
+    border: solid black 1px;
+
+}
+
+.a_sli_050::before{
+    content: "0.25";
+    line-height: 60px;
+    font-size: 9pt;
+}
+
+.lock{
+    width: 25px;
+    height: 30px;
+    background-color: rgb(224, 223, 223);
+    content: "2.5";
+    border: solid black 2px; 
+    border-left: solid black 1px;
+    padding: 0;
+    margin: auto 0;
+}
+
+.lock::before{
+    content: "2.5";
+    line-height: 30px;
+}
+
+.pppipe{
+    width: 10px;
+    height: 20px;
+    background-color: rgb(164, 161, 161);
+    margin: auto 0;
+    border: solid black 1px;
+    border-left: none;
+    line-height: 20px;
+    border-radius: 0 5px 5px 0;
+}
