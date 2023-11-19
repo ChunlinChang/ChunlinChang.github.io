@@ -7,7 +7,7 @@
 
 body {
     overflow-x: hidden;
-    background: rgb(193, 215, 165);
+    background: rgb(215, 215, 165);
 }
 
 nav {
@@ -68,7 +68,7 @@ main {
 .text {
     height: 500px;
     width: 50%;
-    background: rgb(193, 215, 165);
+    background: rgb(215, 215, 165);
     display: flex;
     align-items: center;
     justify-content: right;
@@ -88,7 +88,7 @@ main {
     justify-content: left;
     height: 380px;
     width: 50%;
-    background: rgb(193, 215, 165);
+    background: rgb(215, 215, 165);
     z-index: 0;
 }
 
