@@ -33,22 +33,32 @@ function updateWeightPlates() {
     }
 
     while (totalWeight >= 5) {
-      addWeightPlate("a_black_5");
+      addWeightPlate("a_red_5");
       totalWeight -= 5;
     }
 
-    while (totalWeight >= 2.5) {
-      addWeightPlate("a_sli_205");
-      totalWeight -= 2.5;
+    while (totalWeight >= 4) {
+      addWeightPlate("a_blue_4");
+      totalWeight -= 4;
+    }
+
+    while (totalWeight >= 3) {
+      addWeightPlate("a_yell_3");
+      totalWeight -= 3;
+    }
+
+    while (totalWeight >= 2) {
+      addWeightPlate("a_gree_2");
+      totalWeight -= 2;
     }
 
     while (totalWeight >= 1) {
-      addWeightPlate("a_sli_010");
+      addWeightPlate("a_white_1");
       totalWeight -= 1;
     }
 
     while (totalWeight >= 0.5) {
-      addWeightPlate("a_sli_050");
+      addWeightPlate("a_sli_05");
       totalWeight -= 0.5;
     }
   }

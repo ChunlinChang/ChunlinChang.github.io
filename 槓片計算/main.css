@@ -142,6 +142,7 @@ input {
 .a_red_50::before{
     content: "25";
     line-height: 200px;
+    color:white;
 }
 
 .a_blue_40{
@@ -155,6 +156,7 @@ input {
 .a_blue_40::before{
     content: "20";
     line-height: 200px;
+    color:white;
 }
 
 .a_yell_30{
