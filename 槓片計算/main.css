@@ -70,7 +70,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: right;
-    padding-right: 50px;
+    padding-right: 30px;
 }
 
 .text p {
@@ -91,7 +91,7 @@ main {
 }
 
 .box {
-    width: 450px;
+    width: 400px;
     position: relative;
     text-align: center;
 }
@@ -99,7 +99,7 @@ main {
 
 
 .pipe {
-    width: 70px;
+    width: 100px;
     height: 20px;
     background-color: rgb(164, 161, 161);
     margin: 90px 0px;
@@ -121,7 +121,7 @@ input {
 #a {
     position: absolute;
     top: -40px;
-    left: 20px;
+    left: -30px;
 }
 
 #a li{
