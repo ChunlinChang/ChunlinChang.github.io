@@ -66,7 +66,7 @@ main {
     width: 110%;
 }
 .text {
-    height: 500px;
+    height: 400px;
     width: 50%;
     background: rgb(215, 215, 165);
     display: flex;
@@ -86,7 +86,7 @@ main {
     display: flex;
     align-items:center;
     justify-content: left;
-    height: 380px;
+    height: 280px;
     width: 50%;
     background: rgb(215, 215, 165);
     z-index: 0;
