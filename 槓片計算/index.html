@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <header>
+  <header id="myheader">
     <!-- place navbar here -->
     <nav>
         <ul>
@@ -37,28 +37,37 @@
     <div class="container">
       <div id="space"></div>
 
-      <div class="row">
+      <div class="row" id = "row1">
         <div class="text" id="textarea">
-            <p>重量</p>
-            <input id="kg" type="number"name="totalWeight" min="25" max="325" step="0.5" oninput="update()">
-            <p>KG</p>
+            <p id="t1">重量</p>
+            <input id="kg" type="number"name="totalWeight" min="25" max="325" step="0.5" oninput="update()" value="25">
+            <p id ="t2">KG</p>
+            <label id="s1">重量</label>
         </div>
         <div class="timer" id="timerarea">
-          <label id="count">倒數計時</label>
-          <input type="number" id="countdownInput" min="1" oninput="updateDisplay()" placeholder="秒">
-          <button id="start" onclick="startCountdown()">開始</button>
-          <button id="start" onclick="updateDisplay()">重製</button>
           <div id="box">
             <div id="countdown">00:00</div>
           </div> 
+          <div id="countbox">
+            <label id="count">倒數計時</label>
+            <input type="number" id="countdownInput" min="1" oninput="updateDisplay()" placeholder="秒" value="0">
+          </div>       
+          <div id="buttonbox1">
+            <div id="b">
+              <button class="button3" id="b2" onclick="startPauseCountdown()">開始</button>
+              <button class="button3" onclick="updateDisplay()">重新</button>
+            </div>
+            <button class="button4" id="b1" onclick="startCompetition()">結束比賽</button>
+          </div>
+          <div id="buttonbox2">
+            <button class="button" id="b1" onclick="startCompetition()">開始比賽</button>
+            <button class="button" id="b3" onclick="resetCountdown()">重置</button>
+          </div>
 
         </div>
-      
 
- 
       </div>
       
-
       <div id="inputForm">
         <div class="pic">
           <ul id="a">

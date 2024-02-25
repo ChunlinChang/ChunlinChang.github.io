@@ -11,47 +11,118 @@ body {
     
 }
 
-.text p{
-    text-align: right;
+#countbox{
+    display:flex;
+    align-items: center;
 }
 
 #count{
-    text-align: center;
-    font-size: 16pt;
-
+    text-align: left;
+    font-size: 24pt;
+    display:block;
 }
 
 #countdownInput{
     text-align: center;
-    width:70px;
-    height:30px;
-    font-size: 16pt;
+    width:90px;
+    height:40px;
+    font-size: 20pt;
+    display: block;
+}
+
+#buttonbox1{
+    display: none;
+    margin-top: 10px;
+}
+
+#b{
+    align-items: center;
+}
+
+#buttonbox2{
+    display: flex;
+    align-items: center;
 }
 
 
-
-#start {
-    width: 50px;
-    height: 30px;
+.button {
+    width: 109px;
+    height: 35px;
     border-radius: 10px;
     font-weight: bold;
-    font-size: 13pt;
+    font-size: 16pt;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
-#start:hover {
+.button:hover {
+    background-color: lightblue;
+
+}
+
+.button2 {
+    width: 218px;
+    height: 35px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16pt;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.button2:hover {
+    background-color: lightblue;
+
+}
+
+.button3 {
+    width: 109px;
+    height: 35px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16pt;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(54, 54, 54);
+    color:rgb(219, 219, 219);
+}
+
+.button3:hover {
+    background-color: rgb(47, 76, 86);
+
+}
+
+.button4 {
+    width: 218px;
+    height: 35px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16pt;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(54, 54, 54);
+    color:rgb(219, 219, 219);
+}
+
+.button4:hover {
+    background-color: rgb(47, 76, 86);
+
+}
+
+.button2.a_red_5 {
     background-color: lightblue;
 
 }
 
 #countdown {
-    width: 180px;
+    width: 220px;
     height: 60px;
     font-size: 34pt;
-    color: rgb(0, 4, 130);
+    color: rgb(157, 191, 245);
     text-align: center;
     line-height: 55px;
     margin-top: 5px;
-    margin-left: 30px;
+
     padding-left: 5px;
     padding-right: 5px;
     padding-top:-5px;
@@ -149,17 +220,17 @@ main {
 }
 
 #kg{
-    width: 95px;
-    height:35px;
+    width: 120px;
+    height:45px;
     margin-right: 3px;
-    margin-top: 3pt;
-    font-size: 20pt;
+    margin-top: 5pt;
+    font-size: 28pt;
     text-align: center;
 }
 
 .text p {
     margin-right: 5px;
-    font-size: 22pt;
+    font-size: 30pt;
     font-weight: 600;
 }
 
@@ -174,13 +245,14 @@ main {
 }
 
 #box{
-    display: flex;
+    display: none;
 }
 
 #inputForm{
     height: 230px;
     width:100%;
     margin-top: 50px;
+    margin-right: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -470,4 +542,16 @@ input {
     border-left: none;
     line-height: 20px;
     border-radius: 0 5px 5px 0;
+}
+
+
+#s1{
+    width: 400px;
+    display: none;
+    font-size: 50pt;
+    font-weight:bold;
+    color: rgb(255, 255, 255);
+    margin-top: -20px;
+
+    text-align: right;
 }

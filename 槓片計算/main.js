@@ -8,7 +8,7 @@ function change1(){
   document.getElementById("timerarea").style.backgroundColor= "rgb(193, 215, 165)";
   document.getElementById("POWERLIFTING").style.backgroundColor= "rgba(15, 255, 43, 0.217)";
   document.getElementById("PARA").style.backgroundColor= "rgb(81, 101, 49)";
-  document.getElementById("kg").value = "";
+  document.getElementById("kg").value = "25";
 }
 
 function change2(){
@@ -19,7 +19,7 @@ function change2(){
   document.getElementById("timerarea").style.backgroundColor= "rgb(215, 215, 165)";
   document.getElementById("POWERLIFTING").style.backgroundColor= "rgb(81, 101, 49)";
   document.getElementById("PARA").style.backgroundColor= "rgba(15, 255, 43, 0.217)";
-  document.getElementById("kg").value = "";
+  document.getElementById("kg").value = "25";
 }
 
 function update() {
@@ -171,78 +171,153 @@ function addWeightPlate(className) {
 
 
 // 倒數計時
-let targetDate;
-let intervalId; // 增加 intervalId 以儲存 setInterval 的 ID
+let targetTime = 0;
+let remainingTime = 0;
+let intervalId;
+let paused = false;
+let lastUpdateTime = 0; // 新增一個變數來保存上一次的更新時間
 
-// 更新顯示
 function updateDisplay() {
   if (intervalId) {
     clearInterval(intervalId);
   }
-  const userInput = document.getElementById('countdownInput').value;
-  document.getElementById('countdown').style.color = "rgb(0, 4, 130)";
 
-  // 檢查使用者輸入是否有效
+  const userInput = document.getElementById('countdownInput').value;
+  document.getElementById('countdown').style.color = "rgb(157, 191, 245)";
+  document.getElementById('b2').innerText = '開始';
+  clearInterval(intervalId);
+  intervalId = null;
+  paused = false;
+  
   if (userInput && !isNaN(userInput) && userInput >= 0) {
-    // 直接顯示使用者輸入的數字，轉換為 MM:SS 格式
     const minutes = Math.floor(userInput / 60);
     const seconds = userInput % 60;
-    document.getElementById('countdown').innerHTML = `${formatDigits(minutes)}:${formatDigits(seconds)}`;
+    document.getElementById('countdown').innerHTML = formatDigits(minutes) + ":" + formatDigits(seconds);
+    remainingTime = userInput;
   } else {
     alert('請輸入有效的秒數！');
   }
 }
 
-// 開始倒數計時
-function startCountdown() {
+function startPauseCountdown() {
   const userInput = document.getElementById('countdownInput').value;
-  document.getElementById('countdown').style.color = "rgb(0, 4, 130)";
-  // 檢查使用者輸入是否有效
-  if (userInput && !isNaN(userInput) && userInput >= 0) {
-    // 設定倒數計時的目標時間（以毫秒為單位）
-    targetDate = new Date().getTime() + userInput * 1000;
 
-    // 如果之前有啟動過計時器，先清除掉
-    if (intervalId) {
+  if (userInput && !isNaN(userInput) && userInput > 0) {
+    if (!intervalId) {
+      targetTime = new Date().getTime() + remainingTime * 1000;
+      lastUpdateTime = new Date().getTime(); // 記錄開始時間
+      intervalId = setInterval(updateCountdown, 10);
+      document.getElementById('b2').innerText = '暫停';
+    } else {
       clearInterval(intervalId);
+      intervalId = null;
+      paused = true;
+      document.getElementById('b2').innerText = '繼續';
     }
-
-    // 啟動倒數計時器
-    intervalId = setInterval(updateCountdown, 1); // 調整為每 1 毫秒更新一次
   } else {
     alert('請輸入有效的秒數！');
   }
 }
 
-// 更新倒數計時器的顯示
 function updateCountdown() {
   const currentDate = new Date().getTime();
-  const timeDifference = targetDate - currentDate;
+  const elapsedMilliseconds = currentDate - lastUpdateTime; // 計算與上次更新的時間差
 
-  const totalSeconds = Math.floor(timeDifference / 1000);
-  const minutes = Math.floor(totalSeconds / 60);
-  const seconds = totalSeconds % 60;
+  remainingTime = Math.max(0, remainingTime - elapsedMilliseconds / 1000); // 補足暫停期間的時間
 
-  // 顯示 MM:SS 格式的時間
-  const formattedTime = `${formatDigits(minutes)}:${formatDigits(seconds)}`;
-  document.getElementById('countdown').innerHTML = formattedTime;
-
-  // 如果倒數計時結束，可以在這裡執行相應的動作
-  if (timeDifference < 0) {
+  if (remainingTime > 0) {
+    document.getElementById('countdown').innerHTML = formatTime(remainingTime);
+  } else {
     document.getElementById('countdown').innerHTML = "時間到!";
-    document.getElementById('countdown').style.color = "rgb(158, 20, 20)";
-    // 在這裡執行其他相應的動作
-    clearInterval(intervalId); // 倒數結束後停止更新
+    document.getElementById('countdown').style.color = "rgb(241, 59, 62)";
+    clearInterval(intervalId);
+    intervalId = null;
   }
+
+  lastUpdateTime = currentDate; // 更新上次更新的時間
 }
 
-// 輔助函式：將數字轉換為兩位數，不足的部分補零
-function formatDigits(value, digits = 2) {
-  return value.toString().padStart(digits, '0');
+function resetCountdown() {
+  clearInterval(intervalId);
+  intervalId = null;
+  paused = false;
+  document.getElementById('countdown').innerHTML = "00:00";
+  document.getElementById('countdown').style.color = "rgb(157, 191, 245)";
+  document.getElementById('b2').innerText = '開始';
+  document.getElementById('countdownInput').value = 0;
+  document.getElementById('kg').value = 25;
 }
 
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60); // 使用 Math.floor 取得整數部分
+  return formatDigits(minutes) + ":" + formatDigits(remainingSeconds);
+}
 
+function formatDigits(number) {
+  return (number < 10) ? "0" + number : number;
+}
 
+var p = 0;
+
+function startCompetition() {
+  const userInput = document.getElementById('countdownInput').value;
+
+  if (userInput && !isNaN(userInput) && userInput > 0) {
+    if(p==0){
+      document.getElementById('countdown').style.color = "rgb(157, 191, 245)";
+      document.getElementById('b2').innerText = '開始';
+      clearInterval(intervalId);
+      intervalId = null;
+      paused = false;
+      p = 1;
+      document.getElementById('myheader').style.display = "none";
+      document.getElementById('space').style.display = "none";
+      document.getElementById('t1').style.display = "none";
+      document.getElementById('t2').style.display = "none";
+      document.getElementById('kg').style.display = "none";
+      document.getElementById('s1').style.display='block';
+      document.getElementById('s1').innerHTML="重量"+document.getElementById('kg').value+"KG";
+      document.getElementById('buttonbox1').style.display='block';
+      document.getElementById('buttonbox2').style.display='none';
+      document.getElementById('box').style.display='flex';
+      document.getElementById('count').style.display = "none";
+      document.getElementById('countdownInput').style.display = "none";
+      document.body.style.backgroundColor='rgb(36, 36, 36)';
+      document.getElementById('textarea').style.backgroundColor = "rgb(36, 36, 36)";
+      document.getElementById('timerarea').style.backgroundColor = "rgb(36, 36, 36)";
+      document.getElementById('row1').style.marginLeft = "50px";
+      document.getElementById('inputForm').style.marginLeft = "50px";
+    }else if(p==1){
+      p = 0;
+      document.getElementById('myheader').style.display = "block";
+      document.getElementById('space').style.display = "block";
+      document.getElementById('t1').style.display = "block";
+      document.getElementById('t2').style.display = "block";
+      document.getElementById('kg').style.display = "block";
+      document.getElementById('s1').style.display="none";
+      document.getElementById('buttonbox1').style.display='none';
+      document.getElementById('buttonbox2').style.display='flex';
+      document.getElementById('box').style.display='none';
+      document.getElementById('count').style.display = "block";
+      document.getElementById('countdownInput').style.display = "block";
+      document.getElementById('row1').style.marginLeft = "0px";
+      document.getElementById('inputForm').style.marginLeft = "0px";
+      if(page == 'page1'){
+        document.body.style.backgroundColor  = "rgb(193, 215, 165)";
+        document.getElementById("textarea").style.backgroundColor= "rgb(193, 215, 165)";
+        document.getElementById("timerarea").style.backgroundColor= "rgb(193, 215, 165)";
+      }else if(page == 'page2'){
+        document.body.style.backgroundColor  = "rgb(215, 215, 165)";
+        document.getElementById("textarea").style.backgroundColor= "rgb(215, 215, 165)";
+        document.getElementById("timerarea").style.backgroundColor= "rgb(215, 215, 165)";
+      }
+    }
+  } else {
+    alert('請輸入有效的秒數！');
+  }
+  
+}
 
 
   
