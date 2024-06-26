@@ -273,9 +273,11 @@ function startCompetition() {
       p = 1;
       document.getElementById('myheader').style.display = "none";
       document.getElementById('space').style.display = "none";
+      document.getElementById('space2').style.display = "block";
       document.getElementById('t1').style.display = "none";
       document.getElementById('t2').style.display = "none";
       document.getElementById('kg').style.display = "none";
+      document.getElementById('countbox').style.display = "none";
       document.getElementById('s1').style.display='block';
       document.getElementById('s1').innerHTML="重量"+document.getElementById('kg').value+"KG";
       document.getElementById('buttonbox1').style.display='block';
@@ -292,9 +294,11 @@ function startCompetition() {
       p = 0;
       document.getElementById('myheader').style.display = "block";
       document.getElementById('space').style.display = "block";
+      document.getElementById('space2').style.display = "none";
       document.getElementById('t1').style.display = "block";
       document.getElementById('t2').style.display = "block";
       document.getElementById('kg').style.display = "block";
+      document.getElementById('countbox').style.display = "flex";
       document.getElementById('s1').style.display="none";
       document.getElementById('buttonbox1').style.display='none';
       document.getElementById('buttonbox2').style.display='flex';
